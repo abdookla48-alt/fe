@@ -132,7 +132,7 @@ font-size: 24px;
 color: rgb(238, 224, 224);
 }
 
-main .section1 a button{
+main .section1   .buttonn{
     font-size: 16px;
     padding: 10px 15px;
     border: 3px solid transparent;
@@ -143,9 +143,12 @@ main .section1 a button{
     transition-duration: .6s;
     width: 200px;
     color: white;
+    text-decoration: none;
+    text-align: center;
+    
 }
 
-main .section1 a button:hover{
+main .section1   .buttonn:hover{
     background-color: transparent;
     color: white;
     border: 3px solid rgb(252, 1, 1);
