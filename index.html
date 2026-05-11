@@ -202,10 +202,14 @@ function loginGoogle(){
 
 // تسجيل Facebook
 function loginFacebook(){
-  const provider = new firebase.auth.FacebookAuthProvider();
-  provider.addScope('email');
+ const provider = new firebase.auth.FacebookAuthProvider();
+provider.addScope('email');
 
-  auth.signInWithRedirect(provider);
+  auth.signInWithPopup(provider)
+  .then(result => {
+    console.log(result.user);
+  })
+  .catch(err => console.log(err));
 }
 
 // تسجيل خروج
