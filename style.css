@@ -159,35 +159,9 @@ main .section1 a button:hover{
     animation: img1 1.6s;
 }
 
-header nav .green{
-    background-color: rgb(4, 221, 4);
-    border: none;
-    padding: 8px 15px;
-    color: white;
-    font-weight: bolder;
-    border-radius: 7px;
-   
-   
-   
-     
-} 
+ 
 
-header nav .green:hover{
-    background-color: rgb(5, 204, 5);
-}
-
-header nav .button{
-    width: 90%;
-    display: flex;
-     justify-content: center;
-    align-items: center;
-    position: fixed;
-     z-index: 2;
-    
-    
-
-}
-
+ 
  
  
 
@@ -350,6 +324,167 @@ ul{
  
   
 }
+
+
+
+
+
+.auth-buttons {
+  margin-right: 20px;
+}
+
+.login-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ff9f43);
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+}
+
+/* popup */
+.login-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 15px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.google {
+  background: #db4437;
+  color: white;
+}
+
+.facebook {
+  background: #1877f2;
+  color: white;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.google:hover {
+  background: #c23321;
+}
+
+.facebook:hover {
+  background: #145bd1;
+}
+
+
+
+#menu{
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    min-width: 150px;
+    z-index: 1000;
+}
+
+#menu button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg,#ff4d4d,#ff0000);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#menu button:hover{
+    transform: scale(1.05);
+    opacity: .9;
+}
+
+#userImg{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    object-fit: cover;
+    transition: .3s;
+}
+
+#userImg:hover{
+    transform: scale(1.08);
+}
+
+
+
+
+
+
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  
+
+  .auth-buttons {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-box button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width:573px){
 
@@ -538,9 +673,7 @@ nav{
 
 @media(max-width:880px){
    
-header nav .green{
- margin-left: -50px;
-}
+ 
 .about-img  .boot img{
     width: 400px;
     height: 400px;
@@ -556,11 +689,7 @@ header nav .green{
      nav ul{
         display: none;
     }
-header nav .button{
-     
-    display: flex;
- justify-content: flex-end;
-}
+ 
     
 
     main .section1 .h1 h2{
@@ -676,15 +805,7 @@ main .section1 .h1 h1{
         font-size: 17px;
     }
 
-  header nav .green{
-    background-color: rgb(4, 221, 4);
-    border: none;
-    padding: 8px 15px;
-    color: white;
-    font-weight: bolder;
-    border-radius: 7px;
-} 
-
+  
 
 }
 

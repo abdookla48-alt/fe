@@ -31,9 +31,27 @@
       <li><a href="minu/index.html">منيو</a></li>
       <li><a href="#content">للتواصل</a></li>
     </ul>
-    <div class="button">
-    <a href="whatsapp://send?phone=201151514727" ><button class="green">للتواصل اضغط هنا <i class="fa-brands fa-whatsapp"></i></button></a>
+
+     <div class="auth-buttons" id="authArea">
+
+  <!-- زرار تسجيل الدخول -->
+  <button class="login-btn" onclick="openLogin()" id="loginBtn">
+    تسجيل دخول <i class="fa-solid fa-user"></i>
+  </button>
+
+  <!-- صورة الحساب (هتظهر بعد تسجيل الدخول) -->
+  <div id="userBox" style="display:none; position:relative;">
+    <img id="userImg" onclick="toggleMenu()">
+
+    <!-- قائمة صغيرة -->
+    <div id="menu">
+      <button onclick="logout()">تسجيل خروج</button>
     </div>
+  </div>
+
+</div>
+
+
   </nav>
 
   <main>
@@ -103,7 +121,123 @@
     
 
 
-  
+  <div class="login-popup" id="loginPopup">
+  <div class="login-box">
+
     
+    <span class="close" onclick="closeLogin()">×</span>
+    <h2>تسجيل الدخول</h2>
+
+     <button class="google" onclick="loginGoogle()">
+    <i class="fa-brands fa-google"></i> 
+ تسجيل بجوجل
+</button>
+
+<button class="facebook" onclick="loginFacebook()">
+   <i class="fa-brands fa-facebook-f"></i>  تسجيل بفيسبوك
+</button>
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+    <script>
+function openLogin() {
+  document.getElementById("loginPopup").style.display = "flex";
+}
+
+function closeLogin() {
+  document.getElementById("loginPopup").style.display = "none";
+}
+</script>
+
+
+ <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+<script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCFmY6-_E85leV4NIRPoyOEg48j2fxkeyk",
+  authDomain: "mams-app-824f9.firebaseapp.com",
+  projectId: "mams-app-824f9",
+  storageBucket: "mams-app-824f9.firebasestorage.app",
+  messagingSenderId: "217836596349",
+  appId: "1:217836596349:web:7bbab504237ea54e0d1514"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+var auth = firebase.auth();
+
+</script>
+
+<script>
+
+// فتح/غلق القائمة الصغيرة
+function toggleMenu(){
+  let menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// تسجيل Google
+function loginGoogle(){
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  auth.signInWithPopup(provider)
+  .then(result => {
+    console.log(result.user);
+  })
+  .catch(err => console.log(err));
+}
+
+// تسجيل Facebook
+function loginFacebook(){
+ const provider = new firebase.auth.FacebookAuthProvider();
+provider.addScope('email');
+
+  auth.signInWithPopup(provider)
+  .then(result => {
+    console.log(result.user);
+  })
+  .catch(err => console.log(err));
+}
+
+// تسجيل خروج
+function logout(){
+  auth.signOut();
+}
+
+// متابعة المستخدم (مهم جداً)
+auth.onAuthStateChanged(user => {
+
+  if(user){
+    // اخفاء زرار تسجيل الدخول
+    document.getElementById("loginBtn").style.display = "none";
+
+    // اظهار صورة الحساب
+    document.getElementById("userBox").style.display = "block";
+
+    // وضع صورة الحساب
+    document.getElementById("userImg").src = user.photoURL;
+
+  } else {
+    // لو عمل logout
+    document.getElementById("loginBtn").style.display = "block";
+    document.getElementById("userBox").style.display = "none";
+  }
+
+});
+
+</script>
 </body>
 </html>
